@@ -55,12 +55,13 @@
     };
   }
   function t() {
-    n('[data-toggle="navbar-menu"]').on("click", function () {
+    n('[data-toggle="navbar-menu"]').on("click", function (ev) {
       n(this).toggleClass("close"),
         n(".navbar-collapse").toggleClass("visible"),
         n("body").toggleClass("overflow-hidden");
     }),
-      n(".navbar-nav .nav-item").on("click", function () {
+      n(".navbar-nav .nav-item").on("click", function (ev) {
+        ev.stopPropagation();
         n('[data-toggle="navbar-menu"]').removeClass("close"),
           n(".navbar-collapse").removeClass("visible"),
           n("body").removeClass("overflow-hidden");
